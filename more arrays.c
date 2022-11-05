@@ -20,5 +20,14 @@ char** concat(char* a[][3], int row){
     }
     return merged;
 }
-
+//testing 
+int main(){
+    char* a[2][3] = {{"I", "LOVE", "CODING"}, {"THIS","IS","SPARTA"}};
+    char **result = concat(a,2);
+    for (int i=0; i < 2; i++){
+       printf("%s\n", result[i]);
+    }
+    free(result);
+    return 0;
+}
 
