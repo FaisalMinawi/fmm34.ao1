@@ -29,4 +29,35 @@ char** merge(char* a[], char* b[], int size_a, int size_b){
     return merged;
 
 }
+int main() {//test cases
+
+    //normal test case
+    char* a[] = {"zzzzc", "ac"};
+    char* b[] = {"za", "zb", "ab"};
+
+    //printing the final output
+    for (int i=0; i < 5; i++){
+        printf("%s\n", merge(a,b,2,3)[i]);
+    }
+    free(merge(a,b,2,3));
+    printf("\n");
+
+    char* c[] = {"abbb", "aa"};
+    char* d[] = {""};//empty string case
+    for (int i=0; i < 3; i++){
+        printf("%s\n", merge(c,d,2,1)[i]);
+    }
+    free(merge(c,d,2,1));
+    printf("\n");
+    //other normal test case but a litte more complix complix
+    char* e[] = {"zaz","cbb","baba"};
+    char* f[] = {"zal", "bb", "ba"};
+    for (int i=0; i < 6; i++){
+        printf("%s\n", merge(e,f,3,3)[i]);
+    }
+    free(merge(e,f,3,3));
+    
+    return 0;
+}
+
 
