@@ -94,4 +94,50 @@ int isSorted(int a[]){
     }
     return 1;
 }
+//test cases
+int main(){
+    //normal test case
+    int a[] = {1,1,1,1,1,2,2,2,3,3};
+    printArray(a);
+    printf("\n");
+    arrayHistogram(a);
+    swapValue(a,0,9);
+    printf("%d\n", mode(a));
+    printf("%.1f\n",median(a));
+    printf("%d\n", isSorted(a));
+    printf("**********\n");
+    
+    //before and after sorting case
+    int b[] = {1,3,1,2,1,3,1,3,3,2};
+    arrayHistogram(b);
+    printf("%d\n", mode(b));
+    printf("%d\n", isSorted(b));
+    bubbleSort(b);
+    printf("%d\n", isSorted(b));
+    printf("%.1f\n",median(b));
+    swapValue(b,2,8);
+    printArray(b);
+    printf("**********\n");
+
+    //all elements are the same case
+    int c[] = {2,2,2,2,2,2,2,2,2,2};
+    arrayHistogram(c);
+    swapValue(c,2,2);//same indix case
+    printf("%d\n", mode(c));
+    printf("%.1f\n",median(c));
+    printArray(c);
+    printf("%d\n", isSorted(c));
+    printf("**********\n");
+
+    //the array is in descending order
+    int e[] = {3,3,3,2,2,2,1,1,1,1};
+    printArray(e);
+    bubbleSort(e);
+    printArray(e);   
+    printf("%d\n", mode(e));
+    printf("%.1f\n",median(e)); 
+    printf("**********\n");
+    return 0;
+
+}
 
