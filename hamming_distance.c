@@ -7,9 +7,10 @@ int msb (int x){
     while (x != 0){ 
         counter++; 
         x = x/2;  
-    } 
+    }           
     return counter;
 }
+
 
 int main(){
     int input_1, input_2;
@@ -22,7 +23,7 @@ int main(){
         if (input_2 <= 0){
             break;
         }
-        printf("%d\n",abs(msb(input_1)-msb(input_2))); 
+        printf("%d\n",abs(msb(input_1)-msb(input_2)));
     }
     
     return 0;    
