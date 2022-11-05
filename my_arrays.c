@@ -1,24 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 
-
+//Global Size of the arrays
 int SIZE = 10;
 
-
+//requires: a 1D array of integers
+//effects: print Indecies and the elements in order and vertically
 void printArray(int a[]){
-    printf("Index Value\n");
+    printf("Index Value\n");//prints the header first and once
     for(int i = 0; i < SIZE; i++){
-        printf("%5d%6d\n", i, a[i]);
-    }
+        printf("%5d%6d\n", i, a[i]);//prints the each iteration a space followed by the index
+    }//followed by a space followed the element positioned at that index 
 }
-
+//requires: a 1D array of integers
+//effects: print Type of elements, their occurance, and then string of stars 
+//         of which length = occurance of each element
 void arrayHistogram(int a[]){
     int freq_1 = 0, freq_2 = 0, freq_3 = 0;
     char stars_1[10] = "";
     char stars_2[10] = "";
     char stars_3[10] = "";
     for(int i = 0; i < SIZE; i++){
-
+        //add 1 and star for each occurance depending if it is 1,2, or 3
         if (a[i] == 1){
             freq_1++;
             strcat(stars_1,"*");
@@ -32,19 +35,21 @@ void arrayHistogram(int a[]){
             strcat(stars_3,"*");
         }
     }
-    printf("Value Frequency Histogram\n");
-    printf("%5d%10d%10s\n",1,freq_1,stars_1);
+    printf("Value Frequency Histogram\n");//prints the header first and once
+    printf("%5d%10d%10s\n",1,freq_1,stars_1);//similar methedology to the printArray function 
     printf("%5d%10d%10s\n",2,freq_2,stars_2);
     printf("%5d%10d%10s\n",3,freq_3,stars_3);
 }
-
+//requires: a 1D array of integers - the two indicies whose elements are to be swaped 
+//effects: swap the elements positioned at these indicies
 void swapValue(int a[], int index_1, int index_2){
     int temp = a[index_1];
     a[index_1] = a[index_2];
     a[index_2] = temp;
 }
 
-
+//requires: a 1D array of integers
+//effects: sort them in ascending order
 void bubbleSort(int a[]){
     int i, j;
     for (i = 0; i < SIZE - 1; i++){
@@ -56,9 +61,12 @@ void bubbleSort(int a[]){
     }
 
 }
-
+//requires: a 1D array of integers
+//effects: print the element positioned at the middle of the array 
+//         if size of array is odd then it ouputs array[half its size]
+//         otherwise the average between the middle elements explaining why the returned type is double
 double median(int a[]){ 
-    bubbleSort(a);
+    bubbleSort(a);//Note: the function mutates the array
     if (SIZE % 2 != 0){
         return a[SIZE/2];
     }
@@ -67,28 +75,31 @@ double median(int a[]){
     }
 
 }
-
+//requires: a 1D array of integers
+//effects: print the last positioned most occuring element 
 int mode(int a[]) {
    int max_element = 0, max_occurance = 0, counter;
 
    for (int i = 0; i < SIZE; i++) {
       counter = 0;
       for (int j = 0; j < SIZE; j++){
-         if (a[i] == a[j])
-         counter++;
+         if (a[i] == a[j])//aslong the system is encountring the same element
+         counter++;//encrement 1 to the counter
       }
-      if (max_occurance <= counter){
-         max_occurance = counter;
-         max_element = a[i];
+      if (max_occurance <= counter){//checks if the max_occurance which refers to the max number of occurance of an element is the true max
+         max_occurance = counter;//otherwise the max is assigned to it
+         max_element = a[i];//"=" sign in the "<=" is the reason why the system takes the last maximum occuring element
       }
    }
 
    return max_element;
 }
-
+//requires: a 1D array of integers
+//effects: if array is already sorted in ascending order -> prints 1 
+//         otherwise, prints 0
 int isSorted(int a[]){
     for(int i = 0; i < SIZE -1; i++){
-        if (a[i]> a[i+1]){ 
+        if (a[i]> a[i+1]){ //a[i] should be always less than the upcoming element in the array
             return 0;
         }
     }
@@ -140,4 +151,3 @@ int main(){
     return 0;
 
 }
-
